@@ -1,0 +1,52 @@
+<!-- PAGE TITLE -->
+<div class="page-title">
+    <h2><span class="fa fa-arrow-circle-o-left"></span> Basic Tables</h2>
+</div>
+<!-- END PAGE TITLE -->
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START BASIC TABLE SAMPLE -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Users</h3>
+                    <a [routerLink]="['/addUser']" routerLinkActive="router-link-active" >
+                        <span class="fa fa-plus-circle" style="margin: 10px;"></span>
+                      </a>  
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor=" let item of users; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.firstName}}</td>
+                                <td>{{item.lastName}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.password}}</td>
+                                <td><img src="{{base_picture_user+item.photo }}" width="75" height="75"></td>
+                                <td><a (click)="removeUser(item.id)"> <span class="fa fa-trash-o"
+                                            style="margin: 10px;"></span></a> <span> | </span> 
+                                            <a [routerLink]="['/editUser',item.id]" routerLinkActive="router-link-active" > 
+                                                <span class="fa fa-edit" style="margin: 10px;"></span> </a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>

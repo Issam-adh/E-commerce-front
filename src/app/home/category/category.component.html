@@ -1,0 +1,60 @@
+<!-- PAGE TITLE -->
+<div class="page-title">
+    <h2><span class="fa fa-arrow-circle-o-left"></span> Basic Tables</h2>
+</div>
+<!-- END PAGE TITLE -->
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START BASIC TABLE SAMPLE -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Categories</h3> 
+                    <a [routerLink]="['/addCategory']" routerLinkActive="router-link-active" >
+                        <span class="fa fa-plus-circle" style="margin: 10px;"></span>
+                      </a>   
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Name</th>
+                                <th>description</th>
+                                <th>subCategories</th>
+                                <th>Img</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of categories; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item?.description}}</td>
+                                <td><img src="{{base_picture+item.photo }}" width="100" height="100"></td>
+                                <td *ngFor="let sub of item.subCategories">
+                                    <select>
+                                        <option>
+                                            {{sub.name}}
+                                        </option>
+                                    </select>
+                                </td>
+                                <td> <a (click)="removeCategory(item.id)"> <span class="fa fa-trash-o" style="margin: 10px;"></span>
+                                </a>
+                                    <span> | </span>
+                                    <a [routerLink]="['/editCategory',item.id]" routerLinkActive="router-link-active" >
+                                        <span class="fa fa-edit" style="margin: 10px;"></span>
+
+                                      </a> 
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>

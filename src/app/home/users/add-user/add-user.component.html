@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <!-- START JQUERY VALIDATION PLUGIN -->
+      <div class="block">
+        <h4>Add User</h4>
+        <form
+          id="jvalidate"
+          role="form"
+          class="form-horizontal"
+          [formGroup]="formUser"
+          (ngSubmit)="addUser()"
+        >
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="col-md-3 control-label">First Name:</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" name="firstName" formControlName="firstName" />
+         
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label" >Last Name:</label>
+              <div class="col-md-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="lastName"
+                  formControlName="lastName"
+                />
+               
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" >Email:</label>
+                <div class="col-md-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    formControlName="email"
+                  />
+                 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label" >Password:</label>
+                <div class="col-md-9">
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    formControlName="password"
+                  />
+                 
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-3 control-label">Photo:</label>
+                <div class="col-md-P">
+                  <input type="file"  multiple (change)="handleFileInput($event)" />
+                </div>
+              </div>
+
+            <div class="btn-group pull-right">
+              <button class="btn btn-primary" type="submit">Add User</button>
+            </div>
+          </div>
+        </form>
+        <!-- END JQUERY VALIDATION PLUGIN -->
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>

@@ -1,0 +1,49 @@
+<!-- PAGE TITLE -->
+<div class="page-title">
+    <h2><span class="fa fa-arrow-circle-o-left"></span> Basic Tables</h2>
+</div>
+<!-- END PAGE TITLE -->
+<!-- PAGE CONTENT WRAPPER -->
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START BASIC TABLE SAMPLE -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Basic example</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Reference</th>
+                                <th>SubCategory</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor=" let item of products ; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.price}}</td>
+                                <td>{{item.reference}}</td>
+                                <td *ngFor="let sub of item.subCategories">
+                                    <select>
+                                        <option> {{sub.name}} </option>
+                                    </select>
+                                </td>
+                                <td><a (click)="removeProduct(item.id)"> <span class="fa fa-trash-o"
+                                            style="margin: 10px;"></span></a> <span> | </span> <a><span class="fa fa-edit" style="margin: 10px;"></span></a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTENT WRAPPER -->
+</div>
